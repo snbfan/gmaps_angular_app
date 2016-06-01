@@ -1,0 +1,68 @@
+// Width variables (appears count calculates by raw css)
+@width2: 700px; // Appears 2 times
+
+// Height variables (appears count calculates by raw css)
+@height0: 200px; // Appears 3 times
+@height2: 100%; // Appears 3 times
+
+html {
+  height: @height2;
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: @height2;
+  margin: 0;
+  padding: 0;
+}
+#page-wrap {
+  margin: 0 auto;
+  width: @width2;
+}
+#map {
+  height: 500px;
+  margin-top: 20px;
+  width: @width2;
+}
+.feedback {
+  margin-left:10px;
+}
+.comments {
+  margin-left:10px;
+  width:680px;
+}
+.comments_container {
+  height: @height0;
+  max-height:@height0;
+  overflow: scroll;
+}
+.comment {
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+.overlay {
+  background-color: rgba(0,0,0,0.5);
+  height: @height2;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+.modal {
+  background-color: #ffffff;
+  border-radius: 5px;
+  height: @height0;
+  left: 50%;
+  line-height: 65px;
+  margin-left: -250px;
+  margin-top: -100px;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  width: 500px;
+  z-index: 11;
+}
+[ng-cloak] {
+  display:none;
+}

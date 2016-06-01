@@ -1,0 +1,56 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#page-wrap {
+    width: 700px;
+    margin: 0 auto;
+}
+#map {
+    margin-top: 20px;
+    height: 500px;
+    width: 700px;
+}
+.feedback, .comments {
+    margin-left:10px;
+}
+.comments {
+    width:680px;
+}
+.comments_container {
+    height: 200px;
+    max-height:200px;
+    overflow: scroll;
+}
+.comment {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+/* overlay styles, all needed */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+.modal {
+    width: 500px;
+    height: 200px;
+    line-height: 65px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -250px;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+[ng-cloak] {
+    display:none;
+}

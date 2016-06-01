@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dumpster Locator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <!-- build:css -->
+    <link href="src/styles/main.css" rel="stylesheet" type="text/css">
+    <!-- endbuild -->
+</head>
+<body ng-app="dumpster" ng-cloak>
+    <div ng-controller="DumpsterController as dumpsterCtrl">
+        <div ng-show="error" class="overlay"></div>
+        <div ng-show="error" class="modal"><h2>{{viewMessages.jammer}}</h2><h4>{{error}}{{viewMessages.visitlater}}</h4></div>
+        <div id="page-wrap">
+            <div id="map"></div>
+            <div class="feedback">
+                <form ng-show="reviewRequest">
+                    <h2>{{viewMessages.leaveresponse}} {{currentDumpster.name}}</h2>
+                    <textarea ng-model="reviewText"></textarea><br>
+                    <input type="button" ng-click="cancelReview()" value="Cancel" />
+                    <input type="submit" ng-click="sendReview(reviewText)" value="Send" />
+                </form>
+                <h2 ng-show="thanks">{{thanks}}</h2>
+            </div>
+            <div class="comments" ng-show="comments">
+                <h2 ng-show="comments.length > 0">{{viewMessages.commentslocation}}</h2>
+                <h2 ng-show="comments.length == 0">{{viewMessages.nocomments}}</h2>
+                <div class="comments_container" ng-show="comments.length > 0">
+                    <div class="comment" ng-repeat="comment in comments track by $index">
+                        "<i>{{comment.comment}}</i>"
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- build:tpl -->
+    <div bs-loading-overlay bs-loading-overlay-reference-id="main" bs-loading-overlay-template-url="src/tpl/spinner-overlay.html"></div>
+    <!-- endbuild -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <!-- build:js -->
+    <script type="text/javascript" src="src/scripts/modules/angular-loading-overlay.module.js"></script>
+    <script type="text/javascript" src="src/scripts/app.js"></script>
+    <script type="text/javascript" src="src/scripts/controllers/dumpster.ctrl.js"></script>
+    <script type="text/javascript" src="src/scripts/services/dumpster.srv.js"></script>
+    <script type="text/javascript" src="src/scripts/services/callbuilder.srv.js"></script>
+    <script type="text/javascript" src="src/scripts/services/googlemaps.srv.js"></script>
+    <!-- endbuild -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCntcf-DZLgnzQ480iEMr-X59grj1QQWVE"></script>
+</body>
+</html>
